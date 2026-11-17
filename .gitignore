@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.rsuser
+
+# Build output
+bin/
+obj/
+
+# Rider / JetBrains
+.idea/
+
+# Temporary files
+*.tmp
+*.log
