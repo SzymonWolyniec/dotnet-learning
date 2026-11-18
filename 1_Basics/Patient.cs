@@ -22,6 +22,16 @@ namespace _1_Basics
             IsActive = isActive;
         }
 
+
+        public override string ToString()
+        {
+            return $"Patient Name: {Name}\n" +
+                   $"Age: {Age} yo\n" +
+                   $"Height: {Height} cm\n" +
+                   $"Is Active: {IsActive}";
+        }
+
+
         public Patient ShallowCopy()
         {
             return (Patient)MemberwiseClone();
@@ -42,8 +52,6 @@ namespace _1_Basics
             IsActive = !IsActive;
         }
 
-
-
         public static bool IsPatientValid(Patient patient)
         {
             if (patient == null) return false;
@@ -59,6 +67,8 @@ namespace _1_Basics
             if (!IsValidHeight(height)) return false;
             return true;
         }
+
+
 
     }
 }

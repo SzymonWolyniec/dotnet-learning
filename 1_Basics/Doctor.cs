@@ -49,9 +49,9 @@ namespace _1_Basics
 
         public override string ToString()
         {
-            return $"Name: {Name}\n" +
-                   $"Age: {Age}\n" +
-                   $"Height: {Height}\n" +
+            return $"Doctor Name: {Name}\n" +
+                   $"Age: {Age} yo\n" +
+                   $"Height: {Height} cm\n" +
                    $"Specialization: {Specialization}\n" +
                    $"License Number: {LicenseNumber}";
         }

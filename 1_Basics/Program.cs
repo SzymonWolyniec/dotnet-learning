@@ -10,7 +10,6 @@ namespace _1_Basics
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
-            Console.WriteLine(Patient.PatientInfo);
 
 
             Patient patient1 = new Patient("Michael Johnson", 45, 182.5, true);
@@ -18,28 +17,19 @@ namespace _1_Basics
             Patient patient2 = patient1.ShallowCopy();
             patient2.Name = "Anna Kowalska";
             patient2.Age = 30;
+            patient2.Height = 165.0;
 
+            
+            Console.WriteLine(Patient.PatientInfo);
 
-            Console.WriteLine($"Patient 1 Name: {patient1.Name}");
-            Console.WriteLine($"Patient 1 Age: {patient1.Age} yo");
-            Console.WriteLine($"Patient 1 Height: {patient1.Height} cm");
-            Console.WriteLine($"Patient 1 Is Active: {patient1.IsActive}");
+            Console.WriteLine(patient1);
+            Console.WriteLine($"\n{patient2}");
 
-            Console.WriteLine($"Patient 2 Name: {patient2.Name}");
-            Console.WriteLine($"Patient 2 Age: {patient2.Age} yo");
-            Console.WriteLine($"Patient 2 Is Active: {patient2.IsActive}");
 
             patient2.ToggleActiveStatus();
-            Console.WriteLine($"Patient 2 Is Active: {patient2.IsActive}");
-
-            Console.WriteLine(Patient.IsValidAge(25));
-            Console.WriteLine(Patient.IsValidAge(-5));
-
-            Console.WriteLine(Patient.IsValidHeight(182.5));
-            Console.WriteLine(Patient.IsValidHeight(-10));
+            Console.WriteLine($"\n{patient2.Name} Is Active: {patient2.IsActive}");
 
 
-            Console.WriteLine(Doctor.DoctorInfo);
 
             Doctor doctor1 = new Doctor(
                 "Dr. John Smith",
@@ -48,7 +38,7 @@ namespace _1_Basics
                 DoctorSpecialization.Neurologist,
                 "PWZ-123456");
 
-
+            Console.WriteLine(Doctor.DoctorInfo);
             Console.WriteLine(doctor1);
             Console.WriteLine("\n");
 
