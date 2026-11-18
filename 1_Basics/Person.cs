@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace _1_Basics
 {
@@ -40,20 +38,18 @@ namespace _1_Basics
         }
 
 
-        public Person(string name)
-        {
-            Name = name;
-        }
-
         // Constructor chaining
         public Person(string name, int age, double height)
-            : this(name)
         {
+            Name = name;
             Age = age;
             Height = height;
         }
 
-
+        public virtual void Introduce()
+        {
+            Console.Write($"Hello, my name is {Name}. ");
+        }
 
         public static bool IsValidAge(int age) => age >= 0;
 

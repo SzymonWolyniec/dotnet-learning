@@ -35,9 +35,6 @@ namespace _1_Basics
 
         }
 
-        public Doctor(string name)
-         : base(name)
-        { }
 
         public Doctor(string name, int age, double height, DoctorSpecialization specialization, string licenseNumber)
             : base(name, age, height)
@@ -46,6 +43,11 @@ namespace _1_Basics
             LicenseNumber = licenseNumber;
         }
 
+        public override void Introduce()
+        {
+            base.Introduce();
+            Console.WriteLine($"My specialization is {Specialization}.");
+        }
 
         public override string ToString()
         {

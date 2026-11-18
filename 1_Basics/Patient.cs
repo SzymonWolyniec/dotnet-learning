@@ -12,16 +12,17 @@ namespace _1_Basics
         public bool IsActive { get => _isActive; private set => _isActive = value; }
 
 
-        public Patient(string name)
-            : base(name)
-        { }
-
         public Patient(string name, int age, double height, bool isActive)
             : base(name, age, height)
         {
             IsActive = isActive;
         }
 
+        public override void Introduce()
+        {
+            base.Introduce();
+            Console.WriteLine($"I'm {(IsActive ? "an active" : "an inactive")} patient.");
+        }
 
         public override string ToString()
         {

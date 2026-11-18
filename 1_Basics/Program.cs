@@ -19,7 +19,7 @@ namespace _1_Basics
             patient2.Age = 30;
             patient2.Height = 165.0;
 
-            
+
             Console.WriteLine(Patient.PatientInfo);
 
             Console.WriteLine(patient1);
@@ -54,6 +54,15 @@ namespace _1_Basics
                     Console.WriteLine($"{property.Name}: {property.GetValue(doctor1)}");
                 }
             }
+
+
+            patient1.Introduce();
+            Person person2 = new Patient("Jerry Brown", 27, 185.0, false);
+            person2.Introduce();
+
+            doctor1.Introduce();
+            Person person1 = new Doctor("Dr. Jane Doe", 35, 170, DoctorSpecialization.Cardiologist, "PWZ-654321");
+            person1.Introduce();
 
 
         }
