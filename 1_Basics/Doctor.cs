@@ -45,8 +45,7 @@ namespace _1_Basics
 
         public override void Introduce()
         {
-            base.Introduce();
-            Console.WriteLine($"My specialization is {Specialization}.");
+            Console.WriteLine($"{Consts.IntroductionName} {Name}. My specialization is {Specialization}.");
         }
 
         public override string ToString()

@@ -2,7 +2,7 @@
 
 namespace _1_Basics
 {
-    internal class Person
+    internal abstract class Person
     {
         private string _name = "";
         public string Name
@@ -46,10 +46,12 @@ namespace _1_Basics
             Height = height;
         }
 
-        public virtual void Introduce()
+        public abstract void Introduce();
+
+       /* public virtual void Introduce()
         {
             Console.Write($"Hello, my name is {Name}. ");
-        }
+        }*/
 
         public static bool IsValidAge(int age) => age >= 0;
 

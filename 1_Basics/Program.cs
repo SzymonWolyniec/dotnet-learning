@@ -64,6 +64,10 @@ namespace _1_Basics
             Person person1 = new Doctor("Dr. Jane Doe", 35, 170, DoctorSpecialization.Cardiologist, "PWZ-654321");
             person1.Introduce();
 
+            // Doesnt work because Person is now abstract
+           /* Person personPerson = new Person("Alice Smith", 30, 165.0);
+            personPerson.Introduce();*/
+
 
         }
     }

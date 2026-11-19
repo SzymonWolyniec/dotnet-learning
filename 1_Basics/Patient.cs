@@ -20,8 +20,7 @@ namespace _1_Basics
 
         public override void Introduce()
         {
-            base.Introduce();
-            Console.WriteLine($"I'm {(IsActive ? "an active" : "an inactive")} patient.");
+            Console.WriteLine($"{Consts.IntroductionName} {Name}. I'm {(IsActive ? "an active" : "an inactive")} patient.");
         }
 
         public override string ToString()
