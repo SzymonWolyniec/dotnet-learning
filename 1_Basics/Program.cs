@@ -8,8 +8,72 @@ namespace _1_Basics
 
         static void Main(string[] args)
         {
-            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            CultureInfo.CurrentCulture = new CultureInfo("en-US");
 
+            //PersonsTest();
+            PaymentsTest();
+
+        }
+
+        private static void PaymentsTest()
+        {
+            IPaymentMethod paymentMethod1 = new BLIKPayment();
+
+            Console.WriteLine(IPaymentMethod.PaymentInfo);
+            paymentMethod1.ProcessPayment(100);
+
+            Console.WriteLine(IPaymentMethod.PaymentInfo);
+            paymentMethod1.ProcessPayment(210);
+
+            decimal amount = 250;
+
+
+            if (amount > Consts.BlikMaxAmount)
+            {
+                /* // If the amount exceeds the BLIK maximum limit, process the payment using a credit card instead (no info).
+                 Console.WriteLine(IPaymentMethod.PaymentInfo);
+                 (paymentMethod1 as CreditCardPayment ?? new CreditCardPayment()).ProcessPayment(amount);*/
+
+                if (paymentMethod1 is BLIKPayment)
+                {
+                    Console.WriteLine($"Processing payment of {amount:C}. " +
+                        "Amount exceeds BLIK limit. " +
+                        "Do you want to pay by credit card? (Y/N)");
+
+                    string? answer = Console.ReadLine();
+
+                    if (string.Equals(answer, "Y", StringComparison.OrdinalIgnoreCase))
+                    {
+                        new CreditCardPayment().ProcessPayment(amount);
+                    }
+                    else if (string.Equals(answer, "N", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("Payment cancelled.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Payment cancelled.");
+                    }
+                }
+                else
+                {
+                    paymentMethod1.ProcessPayment(amount);
+                }
+
+            }
+            else
+                paymentMethod1.ProcessPayment(amount);
+
+
+
+        }
+
+
+
+
+
+        private static void PersonsTest()
+        {
             Person patient1 = new Patient("Michael Johnson", 45, 182.5, 85.0, true);
 
             // For testing purposes; patient1 could be a Doctor, so its type should be checked before calling ShallowCopy().
@@ -34,7 +98,6 @@ namespace _1_Basics
 
             DisplayPersonInfo(doctor1);
 
-
             // FOR TESTING: Displaying doctor information using reflection
             if (_isTesting)
             {
@@ -46,7 +109,9 @@ namespace _1_Basics
                     Console.WriteLine($"{property.Name}: {property.GetValue(doctor1)}");
                 }
             }
+
         }
+
 
         private static void DisplayPersonInfo(Person person)
         {
