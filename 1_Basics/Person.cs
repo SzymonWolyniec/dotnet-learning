@@ -10,10 +10,10 @@ namespace _1_Basics
             get => _name;
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Name cannot be null or whitespace.", nameof(Name));
-                else
+                if (PersonValidator.IsValidName(value))
                     _name = value;
+                else
+                    throw new ArgumentException("Name cannot be null or whitespace.", nameof(Name));
             }
         }
         private int _age = 0;
@@ -22,7 +22,7 @@ namespace _1_Basics
             get => _age;
             set
             {
-                if (IsValidAge(value)) _age = value;
+                if (PersonValidator.IsValidAge(value)) _age = value;
                 else throw new ArgumentOutOfRangeException(nameof(Age), "Age cannot be negative.");
             }
         }
@@ -32,7 +32,7 @@ namespace _1_Basics
             get => _height;
             set
             {
-                if (IsValidHeight(value)) _height = value;
+                if (PersonValidator.IsValidHeight(value)) _height = value;
                 else throw new ArgumentOutOfRangeException(nameof(Height), "Height cannot be less than 1.0.");
             }
         }
@@ -45,7 +45,7 @@ namespace _1_Basics
             get => _weight;
             set
             {
-                if (IsValidWeight(value)) _weight = value;
+                if (PersonValidator.IsValidWeight(value)) _weight = value;
                 else throw new ArgumentOutOfRangeException(nameof(Weight), "Weight cannot be less than 0.1.");
             }
         }
@@ -66,12 +66,6 @@ namespace _1_Basics
         {
             Console.WriteLine($"{Weight / Math.Pow(Height/100.0, 2):F2}");
         }
-
-        public static bool IsValidAge(int age) => age >= 0;
-
-        public static bool IsValidHeight(double height) => height >= 1.0;
-
-        public static bool IsValidWeight(double weight) => weight >= 0.1;
 
     }
 }

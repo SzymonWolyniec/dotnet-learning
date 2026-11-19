@@ -57,26 +57,5 @@ namespace _1_Basics
             IsActive = !IsActive;
         }
 
-        public static bool IsPatientValid(Patient patient)
-        {
-            if (patient == null) return false;
-            if (!IsValidAge(patient.Age)) return false;
-            if (!IsValidHeight(patient.Height)) return false;
-            if (!IsValidWeight(patient.Weight)) return false;
-
-            return true;
-        }
-
-        public static bool IsPatientValid(string name, int age, double height, double weight)
-        {
-            if (string.IsNullOrWhiteSpace(name)) return false;
-            if (!IsValidAge(age)) return false;
-            if (!IsValidHeight(height)) return false;
-            if (!IsValidWeight(weight)) return false;
-            return true;
-        }
-
-
-
     }
 }
