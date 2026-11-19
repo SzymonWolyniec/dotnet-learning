@@ -11,8 +11,16 @@ namespace _1_Basics
             CultureInfo.CurrentCulture = new CultureInfo("en-US");
 
             //PersonsTest();
-            PaymentsTest();
+            //PaymentsTest();
+            AddressTest();
 
+        }
+
+        private static void AddressTest()
+        {
+            Person patient1 = new Patient("Michael Johnson", 45, 182.5, 85.0, true, new Address("New York", "5th Avenue", "123"));
+            patient1.Address = new Address("Poznan", "Chrobrego", "456");
+            Console.WriteLine(patient1.Address?.ToString() ?? "No address assigned");
         }
 
         private static void PaymentsTest()
@@ -79,9 +87,6 @@ namespace _1_Basics
 
 
         }
-
-
-
 
 
         private static void PersonsTest()

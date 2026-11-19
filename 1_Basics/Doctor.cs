@@ -36,8 +36,8 @@ namespace _1_Basics
         }
 
 
-        public Doctor(string name, int age, double height, double weight, DoctorSpecialization specialization, string licenseNumber)
-            : base(name, age, height, weight)
+        public Doctor(string name, int age, double height, double weight, DoctorSpecialization specialization, string licenseNumber, Address? address = null)
+            : base(name, age, height, weight, address)
         {
             Specialization = specialization;
             LicenseNumber = licenseNumber;

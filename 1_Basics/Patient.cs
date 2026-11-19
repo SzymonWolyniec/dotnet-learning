@@ -12,8 +12,8 @@ namespace _1_Basics
         public bool IsActive { get => _isActive; private set => _isActive = value; }
 
 
-        public Patient(string name, int age, double height, double weight, bool isActive)
-            : base(name, age, height, weight)
+        public Patient(string name, int age, double height, double weight, bool isActive, Address? address = null)
+            : base(name, age, height, weight, address)
         {
             IsActive = isActive;
         }
@@ -62,14 +62,17 @@ namespace _1_Basics
             if (patient == null) return false;
             if (!IsValidAge(patient.Age)) return false;
             if (!IsValidHeight(patient.Height)) return false;
+            if (!IsValidWeight(patient.Weight)) return false;
+
             return true;
         }
 
-        public static bool IsPatientValid(string name, int age, double height)
+        public static bool IsPatientValid(string name, int age, double height, double weight)
         {
             if (string.IsNullOrWhiteSpace(name)) return false;
             if (!IsValidAge(age)) return false;
             if (!IsValidHeight(height)) return false;
+            if (!IsValidWeight(weight)) return false;
             return true;
         }
 

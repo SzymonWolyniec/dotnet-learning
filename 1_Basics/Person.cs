@@ -37,6 +37,8 @@ namespace _1_Basics
             }
         }
 
+        public Address? Address { get; set; }
+
         private double _weight = 0.0;
         public double Weight
         {
@@ -49,12 +51,13 @@ namespace _1_Basics
         }
 
 
-        public Person(string name, int age, double height, double weight)
+        public Person(string name, int age, double height, double weight, Address? address = null)
         {
             Name = name;
             Age = age;
             Height = height;
             Weight = weight;
+            Address = address;
         }
 
         public abstract void Introduce();
