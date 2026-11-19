@@ -12,10 +12,16 @@ namespace _1_Basics
         public bool IsActive { get => _isActive; private set => _isActive = value; }
 
 
-        public Patient(string name, int age, double height, bool isActive)
-            : base(name, age, height)
+        public Patient(string name, int age, double height, double weight, bool isActive)
+            : base(name, age, height, weight)
         {
             IsActive = isActive;
+        }
+
+        public override void PresentBMI()
+        {
+            Console.Write($"My BMI as a Patient is ");
+            base.PresentBMI();
         }
 
         public override void Introduce()
@@ -25,10 +31,9 @@ namespace _1_Basics
 
         public override string ToString()
         {
-            return $"Patient Name: {Name}\n" +
-                   $"Age: {Age} yo\n" +
+            return $"Age: {Age} yo\n" +
                    $"Height: {Height} cm\n" +
-                   $"Is Active: {IsActive}";
+                   $"Weight: {Weight} kg";
         }
 
 

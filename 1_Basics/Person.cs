@@ -26,36 +26,49 @@ namespace _1_Basics
                 else throw new ArgumentOutOfRangeException(nameof(Age), "Age cannot be negative.");
             }
         }
-        private double _height = 0.0;
+        private double _height = 1.0;
         public double Height
         {
             get => _height;
             set
             {
                 if (IsValidHeight(value)) _height = value;
-                else throw new ArgumentOutOfRangeException(nameof(Height), "Height cannot be negative.");
+                else throw new ArgumentOutOfRangeException(nameof(Height), "Height cannot be less than 1.0.");
+            }
+        }
+
+        private double _weight = 0.0;
+        public double Weight
+        {
+            get => _weight;
+            set
+            {
+                if (IsValidWeight(value)) _weight = value;
+                else throw new ArgumentOutOfRangeException(nameof(Weight), "Weight cannot be less than 0.1.");
             }
         }
 
 
-        // Constructor chaining
-        public Person(string name, int age, double height)
+        public Person(string name, int age, double height, double weight)
         {
             Name = name;
             Age = age;
             Height = height;
+            Weight = weight;
         }
 
         public abstract void Introduce();
 
-       /* public virtual void Introduce()
+        public virtual void PresentBMI()
         {
-            Console.Write($"Hello, my name is {Name}. ");
-        }*/
+            Console.WriteLine($"{Weight / Math.Pow(Height/100.0, 2):F2}");
+        }
 
         public static bool IsValidAge(int age) => age >= 0;
 
-        public static bool IsValidHeight(double height) => height >= 0;
+        public static bool IsValidHeight(double height) => height >= 1.0;
+
+        public static bool IsValidWeight(double weight) => weight >= 0.1;
 
     }
 }

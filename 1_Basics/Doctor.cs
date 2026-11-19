@@ -36,11 +36,17 @@ namespace _1_Basics
         }
 
 
-        public Doctor(string name, int age, double height, DoctorSpecialization specialization, string licenseNumber)
-            : base(name, age, height)
+        public Doctor(string name, int age, double height, double weight, DoctorSpecialization specialization, string licenseNumber)
+            : base(name, age, height, weight)
         {
             Specialization = specialization;
             LicenseNumber = licenseNumber;
+        }
+
+        public override void PresentBMI()
+        {
+            Console.Write($"My BMI as a Doctor is ");
+            base.PresentBMI();
         }
 
         public override void Introduce()
@@ -50,10 +56,9 @@ namespace _1_Basics
 
         public override string ToString()
         {
-            return $"Doctor Name: {Name}\n" +
-                   $"Age: {Age} yo\n" +
+            return $"Age: {Age} yo\n" +
                    $"Height: {Height} cm\n" +
-                   $"Specialization: {Specialization}\n" +
+                   $"Weight: {Weight} kg\n" +
                    $"License Number: {LicenseNumber}";
         }
 
