@@ -25,7 +25,7 @@ namespace _1_Basics
             Console.WriteLine(IPaymentMethod.PaymentInfo);
             paymentMethod1.ProcessPayment(210);
 
-            decimal amount = 250;
+            decimal amount = 10;
 
 
             if (amount > Consts.BlikMaxAmount)
@@ -64,6 +64,18 @@ namespace _1_Basics
             else
                 paymentMethod1.ProcessPayment(amount);
 
+
+            CreditCardPayment creditCardPayment = new CreditCardPayment();
+            IPaymentMethod creditCardPaymentInterface = creditCardPayment;
+            IRefundable creditCardRefunableInterface = creditCardPayment;
+
+            Console.WriteLine(IPaymentMethod.PaymentInfo);
+            creditCardPayment.ProcessPayment(50);
+            creditCardPaymentInterface.Process(50);
+
+            Console.WriteLine(IRefundable.RefundInfo);
+            creditCardPayment.Refund(20);
+            creditCardRefunableInterface.Process(20);
 
 
         }

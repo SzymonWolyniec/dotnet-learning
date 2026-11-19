@@ -9,5 +9,8 @@ namespace _1_Basics
         const string PaymentInfo = "\n=== PAYMENT INFORMATION ===\n";
 
         void ProcessPayment(decimal amount);
+
+        void Process(decimal amount);
+
     }
 }

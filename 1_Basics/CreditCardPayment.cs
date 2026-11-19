@@ -4,8 +4,18 @@ using System.Text;
 
 namespace _1_Basics
 {
-    internal class CreditCardPayment : IPaymentMethod
+    internal class CreditCardPayment : IPaymentMethod, IRefundable
     {
+        void IPaymentMethod.Process(decimal amount)
+        {
+            ProcessPayment(amount);
+        }
+
+        void IRefundable.Process(decimal amount)
+        {
+            Refund(amount);
+        }
+
         public void ProcessPayment(decimal amount)
         {
             Console.WriteLine($"Processing credit card payment of {amount:C}.");
@@ -19,6 +29,11 @@ namespace _1_Basics
 
 
 
+        }
+
+        public void Refund(decimal amount)
+        {
+            Console.WriteLine($"Processing credit card refund of {amount:C}.");
         }
     }
 
